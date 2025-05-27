@@ -31,5 +31,14 @@ set_target_properties(bang PROPERTIES
 add_executable(bang_search test_driver.cpp)
 target_link_libraries(bang_search PRIVATE bang dl)
 
+add_executable(bang_search2 test_batch_driver.cpp)
+target_link_libraries(bang_search2 PRIVATE bang dl)
+
+add_executable(bang_search3 test_stream_driver.cpp)
+target_link_libraries(bang_search3 PRIVATE bang dl)
+
+add_executable(test test.cpp)
+target_link_libraries(test PRIVATE bang dl)
+
 # Clean rule (optional, CMake handles this with 'make clean')
-set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY CLEAN_DIRECTORIES "bang.so;bang_search")
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY CLEAN_DIRECTORIES "bang.so;bang_search;bang_search2;bang_search3;test")
